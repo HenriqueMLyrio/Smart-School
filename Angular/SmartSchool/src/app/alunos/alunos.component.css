@@ -1,0 +1,8 @@
+.alunos{
+    display:flex;
+    justify-content:center;
+    align-items: center;}
+.alunos1{
+    display:flex;
+    justify-content:right;
+    align-items: right;}
