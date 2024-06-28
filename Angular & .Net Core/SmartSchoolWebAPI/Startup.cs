@@ -31,9 +31,10 @@ namespace SmartSchoolWebAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<DataContext>(
-                x => x.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"))
+                x => x.UseSqlite(Configuration.GetConnectionString("DefaultConnection"))
             );
-            services.AddControllers();
+            services.AddControllers()
+                    .AddNewtonsoftJson(opt => opt.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
 
             services.AddScoped<IRepository, Repository>();
 

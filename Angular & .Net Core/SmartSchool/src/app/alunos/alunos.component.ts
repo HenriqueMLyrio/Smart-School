@@ -2,6 +2,7 @@ import { Component, OnInit, TemplateRef } from '@angular/core';
 import { Aluno } from '../models/Aluno';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap';
+import { AlunoService } from './aluno.service';
 
 @Component({
   selector: 'app-alunos',
@@ -16,15 +17,7 @@ export class AlunosComponent implements OnInit {
   public alunoSelecionado: Aluno| null;
   public textSimple: string;
 
-  public alunos = [
-    {id: 1,nome: 'Marta', sobrenome: 'Silva', Telefone: 5555555},
-    {id: 2,nome: 'Paula', sobrenome: 'Silva', Telefone: 5555555},
-    {id: 3,nome: 'Laura', sobrenome: 'Silva', Telefone: 5555555},
-    {id: 4,nome: 'Luiza', sobrenome: 'Silva', Telefone: 5555555},
-    {id: 5,nome: 'Lucas', sobrenome: 'Silva', Telefone: 5555555},
-    {id: 6,nome: 'Pedro', sobrenome: 'Silva', Telefone: 5555555},
-    {id: 7,nome: 'Paulo', sobrenome: 'Silva', Telefone: 5555555},
-  ];
+  public alunos: Aluno[];
 
 
   
@@ -34,11 +27,24 @@ export class AlunosComponent implements OnInit {
   }
 
   constructor(private fb: FormBuilder, 
-              private modalService: BsModalService) {
+              private modalService: BsModalService,
+              private alunoService: AlunoService) {
     this.criarForm();
    }
 
   ngOnInit(): void {
+    this.carregarAlunos();
+  }
+
+  carregarAlunos(){
+    this.alunoService.getAll().subscribe(
+      (alunos: Aluno[]) => {
+        this.alunos = alunos;
+      },
+      (erro: any) => {
+        console.error(erro);
+      }
+    )
   }
 
   criarForm(){
