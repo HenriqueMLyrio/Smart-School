@@ -40,10 +40,12 @@ export class AlunosComponent implements OnInit {
     this.alunoService.getAll().subscribe(
       (alunos: Aluno[]) => {
         this.alunos = alunos;
+        console.log(this.alunos);
       },
       (erro: any) => {
         console.error(erro);
       }
+
     )
   }
 

@@ -18,8 +18,12 @@ export class AlunoService{
     return this.http.get<Aluno[]>(`${this.baseUrl}`);
   }
 
-    getById(id: number): Observable<Aluno> {
+  getById(id: number): Observable<Aluno> {
     return this.http.get<Aluno>(`${this.baseUrl}/${id}`);
   }
+  getByTelefone(Telefone: number): Observable<Aluno> {
+    return this.http.get<Aluno>(`${this.baseUrl}/${Telefone}`);
+  }
+
 
 }
