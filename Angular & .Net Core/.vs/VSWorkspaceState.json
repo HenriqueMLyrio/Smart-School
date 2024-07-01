@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\SmartSchool",
+    "\\SmartSchool\\src",
+    "\\SmartSchool\\src\\app",
+    "\\SmartSchool\\src\\app\\alunos",
+    "\\SmartSchool\\src\\app\\models",
+    "\\SmartSchool\\src\\app\\professores",
+    "\\SmartSchool\\src\\app\\titulo",
+    "\\SmartSchool\\src\\assets",
+    "\\SmartSchool\\src\\environments"
+  ],
+  "SelectedNode": "\\SmartSchool\\src\\app\\models\\Professor.ts",
+  "PreviewInSolutionExplorer": false
+}

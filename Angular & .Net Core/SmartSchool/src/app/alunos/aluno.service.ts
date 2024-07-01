@@ -21,9 +21,17 @@ export class AlunoService{
   getById(id: number): Observable<Aluno> {
     return this.http.get<Aluno>(`${this.baseUrl}/${id}`);
   }
-  getByTelefone(Telefone: number): Observable<Aluno> {
-    return this.http.get<Aluno>(`${this.baseUrl}/${Telefone}`);
+
+  post(aluno: Aluno){
+    return this.http.post(`${this.baseUrl}`, aluno);
   }
 
+  put(id: number, aluno: Aluno): Observable<Aluno>{
+    return this.http.put<Aluno>(`${this.baseUrl}/${id}`, aluno);
+  }
+
+  delete(id: number){
+    return this.http.delete(`${this.baseUrl}/${id}`);
+  }
 
 }
